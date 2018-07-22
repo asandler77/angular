@@ -14,3 +14,13 @@
   widows: 20;
   margin-left: 10px;
 }
+
+.view1{
+  background-color: cadetblue;
+  padding: 6px;
+  /*margin: 6px;*/
+  border: 2px solid green;
+  color: blue;
+  height:50px;
+  width:300px;
+}
