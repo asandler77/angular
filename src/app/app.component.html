@@ -2,32 +2,20 @@
   <header class="header">
     <h1>Todos</h1>
     <input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">
-    <!--<input class="new-todo" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newTodo.title" (keyup.enter)="addTodo()">-->
   </header>
 
-  <!--<div>-->
-    <!--{{ newTodo.title }}-->
-  <!--</div>-->
+
 
 
 
   <section class="main" *ngIf ="todos.length > 0">
     <ul class="todo-list">
-      <li *ngFor="let todo of todos" [class.completed]="todo.complete">
-        <div class="view" *ngIf="todos.length<3; else other_content">
+      <li *ngFor="let todo of todos; let i = index" [class.completed]="todo.complete">
+        <div [ngClass]="{'view' : i >= 3, 'view1': i < 3}">
           <input class="toggle" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
           <label>{{todo.title}}</label>
           <button class="destroy" (click)="removeTodo(todo)">Delete</button>
         </div>
-
-        <ng-template #other_content>
-          <div class="view1">
-          <input class="toggle1" type="checkbox" (click)="toggleTodoComplete(todo)" [checked]="todo.complete">
-          <label>{{todo.title}}</label>
-          <button class="destroy" (click)="removeTodo(todo)">Delete</button>
-          </div>
-
-        </ng-template>
       </li>
     </ul>
   </section>
